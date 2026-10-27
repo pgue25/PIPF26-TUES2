@@ -14,6 +14,15 @@
 </head>
 <body>
   <h1>Students</h1>
+  <h2>Average skill scores</h2>
+  <ul>
+    {% for skill in skill_averages %}
+    <li>
+      {{ skill.label }}:
+      {% if skill.average is not none %}{{ "%.2f"|format(skill.average) }}{% else %}—{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
   {% if names %}
   <ul>
     {% for name in names %}
